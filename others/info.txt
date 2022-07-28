@@ -1,0 +1,52 @@
+npm install -g @vue/cli
+
+vue --version
+
+vue create nome_projeto
+
+    Manually select features
+    Babel, Typescript, Linter / Formatter
+    3.x
+    class-style component sintax N
+    Babel transpiling
+    ESLint with error prevention only
+    Lint on save
+    In dedicated config files
+    Save for future projects N
+
+
+Entrar na pasta do projeto
+
+    npm run serve
+
+------------------------------------------------------
+
+Melhorando experiência do desenvolvedor
+
+Vue.js devtools (plugin chrome)
+
+------------------------------------------------------
+
+Build da aplicação
+
+npm run build
+
+gera arquivos para produção na pasta dist
+
+-------------------------------------------------------
+
+Para testar (usando uma lib node)
+
+entrar na pasta dist
+
+npm i -g http-server
+
+http-server
+
+-------------------------------------------------------
+
+Publicando aplicação usando Vercel
+
+vercel.com
+
+-------------------------------------------------------
