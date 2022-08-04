@@ -32,7 +32,9 @@
 
 <script lang="ts">
 
+import { TipoNotificacao } from "@/interfaces/INotificacao";
 import { key } from "@/store";
+import { NOTIFICAR } from "@/store/tipo-mutacoes";
 import { computed } from "@vue/reactivity";
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
@@ -52,18 +54,30 @@ export default defineComponent({
     },
     methods: {
         finalizarTarefa(tempoDecorrido: number) : void {
+            const projeto = this.projetos.find(proj => proj.id == this.idProjeto);
+            if (!projeto) {
+                this.store.commit(NOTIFICAR, {
+                titulo: 'Ops!',
+                texto: "Selecione um projeto antes de finalizar a tarefa!",
+                tipo: TipoNotificacao.FALHA,
+                });
+                return;
+            }
+
             this.$emit('aoSalvarTarefa', {
                 duracaoEmSegundos: tempoDecorrido,
                 descricao: this.descricao,
-                projeto: this.projetos.find(proj => proj.id == this.idProjeto)
+                projeto: projeto
             });
+
             this.descricao = '';
         }
     },
     setup() {
         const store = useStore(key);
         return  {
-            projetos: computed(() => store.state.projetos)
+            projetos: computed(() => store.state.projetos),
+            store
         }
     }
 })
