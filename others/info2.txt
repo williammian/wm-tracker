@@ -1,0 +1,11 @@
+Rotas
+
+npm i vue-router@4
+
+---------------------------------
+
+Estado da aplicação
+
+Vuex
+
+npm i vuex@next

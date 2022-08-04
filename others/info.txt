@@ -21,6 +21,16 @@ Entrar na pasta do projeto
 
 ------------------------------------------------------
 
+Instalar Bulma (CSS framework)
+
+em index.html
+
+em <head> .... </head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+------------------------------------------------------
+
 Melhorando experiência do desenvolvedor
 
 Vue.js devtools (plugin chrome)
