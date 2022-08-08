@@ -40,6 +40,15 @@
         "id": 2
       },
       "id": 3
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "Compilação",
+      "projeto": {
+        "id": 1,
+        "nome": "WM Tracker"
+      },
+      "id": 4
     }
   ]
 }
