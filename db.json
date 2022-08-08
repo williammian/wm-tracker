@@ -11,6 +11,39 @@
     {
       "id": 3,
       "nome": "Plano de Estudos Atual"
+    },
+    {
+      "id": 4,
+      "nome": "Teste"
+    }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "duracaoEmSegundos": 120,
+      "descricao": "Configuração do ambiente",
+      "projeto": {
+        "id": 1,
+        "nome": "WM Tracker"
+      }
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "Refatoração do Vuex 1",
+      "projeto": {
+        "id": 3,
+        "nome": "Plano de Estudos Atual"
+      },
+      "id": 2
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "Aula Vue",
+      "projeto": {
+        "nome": "ByteBank",
+        "id": 2
+      },
+      "id": 3
     }
   ]
 }
