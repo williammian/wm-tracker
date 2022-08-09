@@ -10,7 +10,7 @@
     },
     {
       "id": 3,
-      "nome": "Plano de Estudos Atual"
+      "nome": "Plano de Estudos Atual Novo"
     }
   ],
   "tarefas": [
@@ -49,6 +49,24 @@
         "nome": "WM Tracker"
       },
       "id": 4
+    },
+    {
+      "duracaoEmSegundos": 4,
+      "descricao": "Estudos",
+      "projeto": {
+        "id": 3,
+        "nome": "Plano de Estudos Atual Novo"
+      },
+      "id": 5
+    },
+    {
+      "duracaoEmSegundos": 4,
+      "descricao": "Javascript",
+      "projeto": {
+        "id": 3,
+        "nome": "Plano de Estudos Atual Novo"
+      },
+      "id": 6
     }
   ]
 }

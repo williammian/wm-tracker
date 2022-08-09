@@ -36,7 +36,7 @@ import { TipoNotificacao } from "@/interfaces/INotificacao";
 import { key } from "@/store";
 import { NOTIFICAR } from "@/store/tipo-mutacoes";
 import { computed } from "@vue/reactivity";
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 import Temporizador from "./Temporizador.vue";
 
@@ -46,17 +46,18 @@ export default defineComponent({
     components: {
         Temporizador
     },
-    data() {
-        return {
-            descricao: '',
-            idProjeto: ''
-        }
-    },
-    methods: {
-        finalizarTarefa(tempoDecorrido: number) : void {
-            const projeto = this.projetos.find(proj => proj.id == this.idProjeto);
+    setup(props, { emit }) {
+        const store = useStore(key);
+
+        const descricao = ref("");
+        const idProjeto = ref("");
+
+        const projetos = computed(() => store.state.projeto.projetos);
+
+        const finalizarTarefa = (tempoDecorrido: number) : void => {
+            const projeto = projetos.value.find(proj => proj.id == idProjeto.value);
             if (!projeto) {
-                this.store.commit(NOTIFICAR, {
+                store.commit(NOTIFICAR, {
                 titulo: 'Ops!',
                 texto: "Selecione um projeto antes de finalizar a tarefa!",
                 tipo: TipoNotificacao.FALHA,
@@ -64,20 +65,20 @@ export default defineComponent({
                 return;
             }
 
-            this.$emit('aoSalvarTarefa', {
+            emit('aoSalvarTarefa', {
                 duracaoEmSegundos: tempoDecorrido,
-                descricao: this.descricao,
+                descricao: descricao.value,
                 projeto: projeto
             });
 
-            this.descricao = '';
+            descricao.value = '';
         }
-    },
-    setup() {
-        const store = useStore(key);
+
         return  {
-            projetos: computed(() => store.state.projeto.projetos),
-            store
+            descricao,
+            idProjeto,
+            projetos,
+            finalizarTarefa
         }
     }
 })
